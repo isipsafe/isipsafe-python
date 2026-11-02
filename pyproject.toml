@@ -1,0 +1,84 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "isipsafe"
+dynamic = ["version"]
+description = "Official Python client and CLI for isIPsafe: check IP reputation, report abusive IPs and download firewall blocklists."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{ name = "WaveCentric", email = "sasi@wavecentric.ai" }]
+keywords = [
+    "ip reputation",
+    "abuse",
+    "blocklist",
+    "threat intelligence",
+    "security",
+    "firewall",
+    "fail2ban",
+    "abuseipdb",
+    "isipsafe",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: Log Analysis",
+    "Topic :: Security",
+    "Topic :: System :: Networking :: Firewalls",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.10", "build>=1.2", "twine>=5"]
+
+[project.scripts]
+isipsafe = "isipsafe.cli:main"
+
+[project.urls]
+Homepage = "https://isipsafe.com"
+Documentation = "https://isipsafe.com/api"
+Source = "https://github.com/isipsafe/isipsafe-python"
+Issues = "https://github.com/isipsafe/isipsafe-python/issues"
+Changelog = "https://github.com/isipsafe/isipsafe-python/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/isipsafe/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/isipsafe"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/isipsafe", "tests", "README.md", "LICENSE", "CHANGELOG.md", "SECURITY.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "RUF"]
+ignore = ["UP006", "UP007", "UP035", "UP045", "S310", "S311"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "S105", "S106"]
+
+[tool.mypy]
+strict = true
+files = ["src/isipsafe"]
