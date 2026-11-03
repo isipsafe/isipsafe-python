@@ -126,6 +126,7 @@ Use the slug or the numeric ID. Common ones: `ssh`, `brute-force`, `port-scan`, 
 
 ## Links
 
+- Official Usage Page: [isipsafe.com/integrations/python](https://isipsafe.com/integrations/python)
 - Website: [isipsafe.com](https://isipsafe.com)
 - API reference: [isipsafe.com/api](https://isipsafe.com/api)
 - Integrations: [isipsafe.com/integrations](https://isipsafe.com/integrations)
