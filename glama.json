@@ -1,6 +1,4 @@
 {
-  "$schema": "https://glama.ai/mcp/schemas/server.json",
-  "maintainers": [
-    "Yuva-wavecentric"
-  ]
+  "$schema": "https://glama.ai/mcp/schemas/connector.json",
+  "claim": "glama_claim_1kA-PsAjszZmZOqjQakCJLxqvlW5CUOf"
 }
